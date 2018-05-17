@@ -1,0 +1,100 @@
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""Parameters for each machine's capability and operating targets"""
+type Machines {
+  _id: String
+  created_at: String
+  updated_at: String
+  MachineName: String
+  MachineID: String
+  MaxMachineFeedMD_mm: Int
+  MaxMachineFeedCD_mm: Int
+  MinMachineFeedMD_mm: Int
+  MinMachineFeedCD_mm: Int
+  MaxMechanicalSpeed_kphr: Int
+  TargetRunSpeed_kphr: Int
+  Target_UDT_mins: Int
+  TargetSU_mins: Int
+  NumberofPU: Int
+}
+
+type Message {
+  _id: String
+  created_at: String
+  updated_at: String
+  title: String
+  content: String
+  tags: String
+}
+
+union Morph = Machines | Message | Product | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+
+type Product {
+  _id: String
+  name: String
+  description: String
+}
+
+type Query {
+  machine(id: String!): Machines
+  machines(sort: String, limit: Int, start: Int, where: JSON): [Machines]
+  message(id: String!): Message
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
+  product(id: String!): Product
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  role(id: String!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  user(id: String!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UploadFile {
+  _id: String
+  created_at: String
+  updated_at: String
+  name: String
+  hash: String
+  ext: String
+  mime: String
+  size: String
+  url: String
+  provider: String
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UsersPermissionsPermission {
+  _id: String
+  type: String
+  controller: String
+  action: String
+  enabled: Boolean
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  _id: String
+  name: String
+  description: String
+  type: String
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+}
+
+type UsersPermissionsUser {
+  _id: String
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  role: UsersPermissionsRole
+}

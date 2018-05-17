@@ -1,0 +1,39 @@
+{
+  "machines": {
+    "attributes": {
+      "Machine Name": {
+        "appearance": ""
+      },
+      "Machine ID": {
+        "appearance": ""
+      },
+      "Max Machine Feed MD (mm)": {
+        "appearance": ""
+      },
+      "Max Machine Feed CD (mm)": {
+        "appearance": ""
+      },
+      "Min Machine Feed MD (mm)": {
+        "appearance": ""
+      },
+      "Min Machine Feed CD (mm)": {
+        "appearance": ""
+      },
+      "Max Mechanical Speed (kphr)": {
+        "appearance": ""
+      },
+      "Target Run Speed (kprunhr)": {
+        "appearance": ""
+      },
+      "Target UDT (mins)": {
+        "appearance": ""
+      },
+      "Target SU (mins)": {
+        "appearance": ""
+      },
+      "Number of PU": {
+        "appearance": ""
+      }
+    }
+  }
+}

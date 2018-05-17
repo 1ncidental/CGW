@@ -1,0 +1,51 @@
+{
+  "connection": "default",
+  "collectionName": "machines",
+  "info": {
+    "name": "machines",
+    "description": "Parameters for each machine's capability and operating targets"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "MachineName": {
+      "minLength": 6,
+      "type": "string",
+      "required": true
+    },
+    "MachineID": {
+      "unique": true,
+      "minLength": 3,
+      "type": "string",
+      "required": true
+    },
+    "MaxMachineFeedMD_mm": {
+      "type": "integer"
+    },
+    "MaxMachineFeedCD_mm": {
+      "type": "integer"
+    },
+    "MinMachineFeedMD_mm": {
+      "type": "integer"
+    },
+    "MinMachineFeedCD_mm": {
+      "type": "integer"
+    },
+    "MaxMechanicalSpeed_kphr": {
+      "type": "integer"
+    },
+    "TargetRunSpeed_kphr": {
+      "type": "integer"
+    },
+    "Target_UDT_mins": {
+      "type": "integer"
+    },
+    "TargetSU_mins": {
+      "type": "integer"
+    },
+    "NumberofPU": {
+      "type": "integer"
+    }
+  }
+}

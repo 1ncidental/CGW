@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/machines",
+      "handler": "Machines.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/machines/:_id",
+      "handler": "Machines.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/machines",
+      "handler": "Machines.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/machines/:_id",
+      "handler": "Machines.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/machines/:_id",
+      "handler": "Machines.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
